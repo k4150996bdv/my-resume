@@ -1,24 +1,35 @@
-import logo from './logo.svg';
+import React from 'react';
+import { BrowserRouter, Route } from 'react-router-dom';
 import './App.css';
+import Education from './components/Education/Education';
+import Experience from './components/Experience/Experience';
+import Footer from './components/Footer/Footer';
+import Header from './components/Header/Header';
+import Hobbies from './components/Hobbies/Hobbies';
+import MainPage from './components/Content/MainPage';
+import Navbar from './components/Navbar/Navbar';
+import Profile from './components/Profile/Profile';
+import Skills from './components/Skills/Skills';
 
-function App() {
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <div className="wrapper">
+        <Header />
+        <Navbar />
+        <Profile />
+        <div className="content">
+          <Route component={MainPage} path="/mainpage" />
+          <Route component={Skills} path="/skills" />
+          <Route component={Experience} path="/experience" />
+          <Route component={Education} path="/education" />
+          <Route component={Hobbies} path="/hobbies" />
+        </div>
+        <Footer />
+      </div>
+    </BrowserRouter>
+
   );
 }
 
